@@ -15,7 +15,7 @@ export const FeedbackProvider = ({children}) => {
     }, []);
 
     const fetchFeedback = async () => {
-        const response = await fetch(`/feedback?_sort=id&_order=desc`)
+        const response = await fetch(`https://andrewtestdata.herokuapp.com/feedback?_sort=id&_order=desc`)
         const data = await response.json()
 
         setFeedback(data)
@@ -23,7 +23,7 @@ export const FeedbackProvider = ({children}) => {
     }
 
     const addFeedback = async (newFeedback) => {
-        const response = await fetch('/feedback', {
+        const response = await fetch('https://andrewtestdata.herokuapp.com/feedback', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ export const FeedbackProvider = ({children}) => {
     }
 
     const updateFeedback = async (id, updItem) => {
-    const response = await fetch(`/feedback/${id}`, {
+    const response = await fetch(`https://andrewtestdata.herokuapp.com/feedback/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ export const FeedbackProvider = ({children}) => {
     }
 
     const deleteFeedback = async (id) => {
-        await fetch(`/feedback/${id}`, { method: 'DELETE'})
+        await fetch(`https://andrewtestdata.herokuapp.com/feedback/${id}`, { method: 'DELETE'})
         setFeedback(feedback.filter((item) => item.id !== id))
     }
 
